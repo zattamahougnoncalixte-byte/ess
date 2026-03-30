@@ -1,0 +1,33 @@
+! ============================================================
+! params.nml — Fichier namelist d'entrée
+! Solveur de chaleur 1D — Crank-Nicolson
+!
+! Modifiez les valeurs ci-dessous pour configurer la simulation.
+! Les noms des groupes (&physique, &numerique, &sortie) sont fixes.
+! ============================================================
+
+&physique
+  rho       = 8000.0       ! masse volumique            [kg/m³]
+  cp        =  500.0       ! capacité thermique          [J/(kg·K)]
+  k_cond    =   50.0       ! conductivité thermique      [W/(m·K)]
+  q0        = 1.0e6        ! amplitude source gaussienne [W/m³]
+  x0_src    =   0.5        ! centre de la gaussienne     [m]
+  sigma_src =  0.05        ! écart-type gaussienne       [m]
+  T_init    =  300.0       ! température initiale        [K]
+  h_L       =  100.0       ! coeff convectif gauche      [W/(m²·K)]
+  T_inf_L   =  300.0       ! température fluide gauche   [K]
+  h_R       =  100.0       ! coeff convectif droit       [W/(m²·K)]
+  T_inf_R   =  300.0       ! température fluide droit    [K]
+/
+
+&numerique
+  Lx      = 1.0            ! longueur du domaine [m]
+  Nx      = 101            ! nombre de nœuds
+  dt      = 1.0            ! pas de temps        [s]
+  Nsteps  = 300            ! nombre de pas
+/
+
+&sortie
+  output_freq = 10         ! écriture tous les N pas
+  output_dir  = 'output'   ! répertoire de sortie
+/
