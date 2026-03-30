@@ -1,0 +1,11 @@
+# Fichiers compilés Fortran
+*.o
+*.mod
+
+# Exécutable
+solveur_chaleur
+
+# Sorties de la simulation
+output/
+chaleur_1d.gif
+plot_animation.gp
